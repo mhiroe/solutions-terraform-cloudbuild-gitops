@@ -1,3 +1,6 @@
 .terraform*
 *.tfstate*
 *.tfplan
+
+docker-compose.yml
+environments/dev/docker-compose.yml

@@ -1,4 +1,4 @@
-version: "0.2"
+version: "2.2"
 services:
   tf:
     image: hashicorp/terraform:1.0.0
@@ -8,7 +8,7 @@ services:
       - TF_VAR_billing_id=xxx
       - TF_VAR_gcp_project=cb-dev-322606
     volumes:
-      - /Users/mitsuki.hiroe/w/terraform-cloudbuild-gitops/environmentes/dev:/workspace:cached
+      - ${HOME}/w/terraform-cloudbuild-gitops/environmentes/dev:/workspace:cached
       - gcloud-config:/root/.config
   gc:
     entrypoint: "gcloud"
@@ -16,7 +16,7 @@ services:
     container_name: "gcloud"
     working_dir: /workspace
     volumes:
-      - /Users/mitsuki.hiroe/w/terraform-cloudbuild-gitops/environmentes/dev:/workspace:cached
+      - ${HOME}/w/terraform-cloudbuild-gitops/environmentes/dev:/workspace:cached
       - gcloud-config:/root/.config
 volumes:
   gcloud-config:
